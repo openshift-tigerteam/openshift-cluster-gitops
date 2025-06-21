@@ -1,3 +1,11 @@
 resources:
+  - cluster-kube-descheduler-operator
+  - external-secrets-operator
+  - kubernetes-nms-operator
+  - openshift-cert-manager-operator
   - openshift-gitops-operator
   - self-node-remediation
+  # Optional Operators
+  # Storage
+  # - local-storage-operator
+  # - odf-operator

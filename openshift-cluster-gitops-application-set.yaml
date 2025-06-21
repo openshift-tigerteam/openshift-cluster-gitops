@@ -11,12 +11,14 @@ spec:
         generators:
           - list:
               elements:
-                - name: foundation
+                - name: "foundation"
                   syncWave: "0"
-                - name: operators
+                - name: "operators"
                   syncWave: "10"
-                - name: storage
-                  syncWave: "20"
+                - name: "cluster-gitops"
+                  syncWave: "30"
+                - name: "storage"
+                  syncWave: "100"
           - list:
               elements:
                 - repoURL: https://github.com/<org>/openshift-cluster-gitops.git
