@@ -1,0 +1,3 @@
+resources:
+  - openshift-gitops-operator
+  - self-node-remediation

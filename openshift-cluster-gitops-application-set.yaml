@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: openshift-cluster-gitops-application-set
+  namespace: cluster-gitops
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - merge:
+        generators:
+          - list:
+              elements:
+                - name: foundation
+                  syncWave: "0"
+                - name: operators
+                  syncWave: "10"
+                - name: storage
+                  syncWave: "20"
+          - list:
+              elements:
+                - repoURL: https://github.com/<org>/openshift-cluster-gitops.git
+        mergeKeys:
+          - ""
+  template:
+    metadata:
+      name: '{{.name}}'
+      namespace: cluster-gitops
+      annotations:
+        argocd.argoproj.io/sync-wave: '{{.syncWave}}'
+    spec:
+      project: cluster
+      source:
+        repoURL: '{{.repoURL}}'
+        targetRevision: main
+        path: '{{.name}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: ''
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
