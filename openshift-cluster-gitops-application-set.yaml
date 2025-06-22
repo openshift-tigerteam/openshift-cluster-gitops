@@ -17,6 +17,10 @@ spec:
                   syncWave: "10"
                 - name: "cluster-gitops"
                   syncWave: "30"
+                - name: "openshift-cnv"
+                  syncWave: "40"
+                - name: "openshift-kube-descheduler-operator"
+                  syncWave: "40"
                 - name: "storage"
                   syncWave: "100"
           - list:
