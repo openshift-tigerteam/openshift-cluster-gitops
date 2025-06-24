@@ -15,7 +15,11 @@ spec:
                   syncWave: "0"
                 - name: "cluster-gitops"
                   syncWave: "10"
+                - name: "kube-descheduler"
+                  syncWave: "20"
                 - name: "nmstate"
+                  syncWave: "20"
+                - name: "self-node-remediation"
                   syncWave: "20"
           - list:
               elements:
