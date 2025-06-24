@@ -15,6 +15,8 @@ spec:
                   syncWave: "0"
                 - name: "cluster-gitops"
                   syncWave: "10"
+                - name: "nmstate"
+                  syncWave: "20"
           - list:
               elements:
                 - repoURL: https://github.com/<org>/openshift-cluster-gitops.git
