@@ -13,20 +13,28 @@ spec:
               elements:
                 - name: "openshift-gitops-operator"
                   syncWave: "0"
+                  folder: "cluster/openshift-gitops-operator"
                 - name: "cluster-gitops"
                   syncWave: "10"
+                  folder: "cluster/cluster-gitops"
                 - name: "external-secrets-operator"
                   syncWave: "20"
+                  folder: "cluster/external-secrets-operator"
                 - name: "kube-descheduler"
                   syncWave: "20"
+                  folder: "cluster/kube-descheduler"
                 - name: "kubevirt-hyperconverged"
                   syncWave: "20"
+                  folder: "cluster/kubevirt-hyperconverged"
                 - name: "nmstate"
                   syncWave: "20"
+                  folder: "cluster/nmstate"
                 - name: "openshift-cert-manager-operator"
                   syncWave: "20"
+                  folder: "cluster/openshift-cert-manager-operator"
                 - name: "self-node-remediation"
                   syncWave: "20"
+                  folder: "cluster/self-node-remediation"
           - list:
               elements:
                 - repoURL: https://github.com/<org>/openshift-cluster-gitops.git
@@ -43,7 +51,7 @@ spec:
       source:
         repoURL: '{{.repoURL}}'
         targetRevision: main
-        path: '{{.name}}'
+        path: '{{.folder}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: ''
